@@ -2,8 +2,11 @@ pipeline {
   agent any
   stages {
     stage('Build') {
+      environment {
+        Name='name'
+      }
       steps {
-        echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
+        echo "${env.BUILD_ID}, ${env.JENKINS_URL}, ${env.Name}"
       }
     }
   }
